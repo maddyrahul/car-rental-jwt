@@ -1,0 +1,44 @@
+<app-header></app-header>
+ <!-- show  message if -->
+ <div *ngIf="error" class="alert alert-dismissible fade show" style="background-color: #ef4646;" role="alert">
+    <strong>deleted</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<table class="table table-success table-striped table-bordered border-11 mt-5">
+    <thead>
+        <tr>
+            <th>User's Details</th>
+     
+            <th>Booking Date</th>
+            <th>Return Date</th>
+            <th>Is Returned</th>
+            <th>Request For Return</th>
+            <th>Action</th>
+            <!-- Add more table headers for other properties as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let agreement of listRent">
+            <td><button  (click)="showuser(agreement.userId)" class="btn btn-outline-primary">User</button></td>
+           
+            <td>{{ agreement.bookingDate | date }}</td>
+            <td>{{ agreement.returnDate | date}}</td>
+            <td>{{ agreement.isReturned }}</td>
+            <td>{{ agreement.requestForReturn}}</td>
+            <td>
+                <a   (click)="editRentalAgreement(agreement.rentalAgreementId)">
+
+                    <i class="fa fa-pencil" aria-hidden="true" style='font-size:24px;color:#3300ff'></i>
+                </a>
+
+
+                <i (click)="deleteCarRental(agreement.rentalAgreementId)" class="fa fa-trash w3-padding w3-xlarge w3-text-red" style="margin-left: 13px; font-size:24px; ">
+                </i>
+            </td>
+           <td>
+            <button *ngIf="!IsReturn(agreement) && RequestForReturn(agreement)" (click)="updateIsReturn(agreement)" class="attractive-button">inspection</button>
+           </td> 
+            <!-- Add more table cells for other properties as needed -->
+        </tr>
+    </tbody>
+</table>

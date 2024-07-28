@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="container">
+    <h1>Edit Rental Agreement Details</h1>
+    <div *ngIf="successMessage" class="alert alert-success">
+        {{ successMessage }}
+    </div>
+
+    <form (ngSubmit)="updaterentalCar()" #carForm="ngForm" novalidate>
+        
+       
+        <div class="form-group">
+            <label for="bookingDate">Booking Date</label>
+            <input type="datetime-local" class="form-control" id="bookingDate" [(ngModel)]="car.bookingDate" name="bookingDate" required>
+            <div *ngIf="carForm.submitted && carForm.controls['bookingDate'].invalid" class="text-danger">Booking Date is required</div>
+        </div>
+        <div class="form-group">
+            <label for="returnDate">Return Date</label>
+            <input type="datetime-local" class="form-control" id="returnDate" [(ngModel)]="car.returnDate" name="returnDate" required>
+            <div *ngIf="carForm.submitted && carForm.controls['returnDate'].invalid" class="text-danger">Return Date is required</div>
+        </div>
+        <div class="form-group">
+            <label for="isReturned">Is Returned</label>
+            <input type="text" class="form-control" id="isReturned" [(ngModel)]="car.isReturned" name="isReturned" required>
+            <div *ngIf="carForm.submitted && carForm.controls['isReturned'].invalid" class="text-danger">Is Returned is required</div>
+        </div>
+        <div class="form-group">
+            <label for="requestForReturn">Request For Return</label>
+            <input type="text" class="form-control" id="requestForReturn" [(ngModel)]="car.requestForReturn" name="requestForReturn" required>
+            <div *ngIf="carForm.submitted && carForm.controls['requestForReturn'].invalid" class="text-danger">Request For Return is required</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>

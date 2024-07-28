@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="container">
+    <h1>Edit Car Details</h1>
+    <div *ngIf="successMessage" class="alert alert-success">
+      {{ successMessage }}
+    </div>
+  
+    <form (ngSubmit)="updateCar()" #carForm="ngForm" novalidate>
+      <div class="form-group">
+        <label for="maker">Maker</label>
+        <input type="text" class="form-control" id="maker" [(ngModel)]="car.maker" name="maker" required>
+        <div *ngIf="carForm.submitted && carForm.controls['maker'].invalid" class="text-danger">Maker is required</div>
+      </div>
+      <div class="form-group">
+        <label for="model">Model</label>
+        <input type="text" class="form-control" id="model" [(ngModel)]="car.model" name="model" required>
+        <div *ngIf="carForm.submitted && carForm.controls['model'].invalid" class="text-danger">Model is required</div>
+      </div>
+      <div class="form-group">
+        <label for="rentalPrice">Rental Price</label>
+        <input type="number" class="form-control" id="rentalPrice" [(ngModel)]="car.rental_Price" name="rental_Price" required>
+        <div *ngIf="carForm.submitted && carForm.controls['rental_Price'].invalid" class="text-danger">Rental Price is required</div>
+      </div>
+      <div class="form-group">
+        <label for="availabilityStatus">Availability Status</label>
+        <select class="form-control" id="availabilityStatus" [(ngModel)]="car.availability_status" name="availability_status" required>
+          <option value="available">Available</option>
+          <option value="onRent">On Rent</option>
+          <option value="onMaintenance">On Maintenance</option>
+        </select>
+        <div *ngIf="carForm.submitted && carForm.controls['availability_status'].invalid" class="text-danger">Availability Status is required</div>
+      </div>
+      <div class="form-group">
+        <label for="imageLink">Image Link</label>
+        <input type="text" class="form-control" id="imageLink" [(ngModel)]="car.image_Link" name="image_Link" required>
+        <div *ngIf="carForm.submitted && carForm.controls['image_Link'].invalid" class="text-danger">Image Link is required</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+  </div>

@@ -1,0 +1,15 @@
+/* styles.css or styles.scss */
+.attractive-button {
+    background-color: #3498db; /* Background color */
+    color: #ffffff; /* Text color */
+    border: none; /* Remove button border */
+    padding: 10px 20px; /* Add padding for better appearance */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 16px; /* Adjust font size */
+  }
+  
+  .attractive-button:hover {
+    background-color: #2980b9; /* Change background color on hover */
+  }
+  

@@ -1,0 +1,13 @@
+:host {
+    display: block;
+    height: 4rem;
+    width: 100%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 20;
+}
+.small-text {
+    font-size: 0.8rem; /* Adjust the font size as desired */
+  }
+  

@@ -1,0 +1,80 @@
+<app-header></app-header>
+<body *ngIf=" utilityService.isAdmin()">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center w-100">
+                <header class="text-white text-center fw-bold fs-3">Admin</header>
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+
+    <div class="fixed-header mt-5" style="padding: 10px 20px;">
+        <div class="row">
+            <div class="col">
+                <b class="mb-4" style="font-size: 22px;">All Car Details</b><br>
+                <button type="button" class="btn btn-outline-secondary" routerLink="/addcar">
+                     Add Car Details 
+                </button>
+            </div>
+        </div>
+
+
+        <!-- show  message if -->
+        <div *ngIf="error" class="alert alert-dismissible fade show" style="background-color: #ef4646;" role="alert">
+            <strong>deleted</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <table class="table table-success table-striped table-bordered border-11 mt-5" >
+            <thead>
+                <tr>
+                    <th scope="col">Maker</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Rental Price</th>
+                    <th scope="col">Availability status</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Action</th>
+                     
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of cars">
+                <tr>
+                    <td>{{item.maker}}</td>
+                    <td>{{item.model}}</td>
+                    <td>{{item.rental_Price}}</td>
+                    <td>{{item.availability_status}}</td>
+                    <td><img src="{{item.image_Link}}" alt="Image" class="img-fluid img-thumbnail custom-image"></td>
+                   
+
+                    <td>
+                        <a  (click)="editCar(item.vehicle_Id)">
+
+                            <i class="fa fa-pencil" aria-hidden="true" style='font-size:24px;color:#3300ff'></i>
+                        </a>
+
+
+                        <i (click)="deleteCar(item.vehicle_Id)" class="fa fa-trash w3-padding w3-xlarge w3-text-red" style="margin-left: 13px; font-size:24px; ">
+                        </i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+      
+
+</body>
+
+
+<div *ngIf="!utilityService.isAdmin()" class="container pt-5">
+    <p class="fs-1 fw-bold text-danger">OOPS!</p>
+    <p class="fs-1 fw-bold text-secondary">Page Not Found!</p>
+    <p class="fs-2 fw-bold fst-italic text-secondary">You are not logged in. Please log in first as Admin!</p>
+  </div>

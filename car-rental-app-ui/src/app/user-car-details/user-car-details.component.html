@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="container mt-4">
+    <h2>Car Details</h2>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"><strong>Maker:</strong> {{ cardetails.maker }} </h5>
+            <h5 class="card-title"><strong>Model:</strong> {{ cardetails.model }}</h5>
+            <p class="card-text"><strong>Rental Price:</strong> {{ cardetails.rental_Price }}</p>
+            <p class="card-text"><strong>Availability Status:</strong> {{ cardetails.availability_status }}</p>
+            <p class="card-text">
+               
+                <img src="{{ cardetails.image_Link }}" alt="Image"
+                    class="img-fluid img-thumbnail custom-image"
+                    style="max-width: 200px; border-radius: 10px;">
+            </p>
+            
+            <!-- Add more properties here as needed -->
+            <button class="btn btn-primary mt-3" routerLink="/home">Back to Home</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+.custom-image {
+    max-width: 100px;  /* Adjust the maximum width as per your preference */
+    max-height: 100px; /* Adjust the maximum height as per your preference */
+}
+
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+}

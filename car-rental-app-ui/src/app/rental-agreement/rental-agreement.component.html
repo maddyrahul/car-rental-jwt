@@ -1,0 +1,65 @@
+<app-header></app-header>
+<div *ngIf="errorMessage" class="alert alert-dismissible fade show" style="background-color: #ef4646;" role="alert">
+  <strong>{{errorMessage }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div *ngIf="successMessage" class="alert alert-dismissible fade show" style="background-color: #ef4646;" role="alert">
+  <strong>{{successMessage }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div *ngIf="rentalAgreement">
+  <form (ngSubmit)="createRentalAgreement()" class="rental-form">
+    <div class="booking-details">
+      <div class="form-group">
+        <label for="bookingDate">Booking Date</label>
+        <input type="date" id="bookingDate" name="bookingDate" [(ngModel)]="rentalAgreement.bookingDate" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="returnDate">Return Date</label>
+        <input type="date" id="returnDate" name="returnDate" [(ngModel)]="rentalAgreement.returnDate" class="form-control">
+      </div>
+      
+    </div>
+
+     <div *ngIf="carDetails" class="vehicle-details">
+      <h2>Vehicle Details</h2>
+      <table class="table table-bordered">
+        <tr>
+          <th>Vehicle Maker</th>
+          <td>{{carDetails.maker }}</td>
+        </tr>
+        <tr>
+          <th>Vehicle Model</th>
+          <td>{{ carDetails.model }}</td>
+        </tr>
+        <tr>
+          <th>Rental Price</th>
+          <td>{{carDetails.rental_Price }}</td>
+        </tr>
+        <tr>
+          <th>Availability Status</th>
+          <td>{{ carDetails.availability_status }}</td>
+        </tr>
+        <tr>
+          <th>Image</th>
+          <td>
+            <img
+              src="{{ carDetails.image_Link }}"
+              alt="Car Image"
+              class="img-fluid img-thumbnail custom-image"
+            />
+          </td>
+        </tr>
+      </table>
+    </div> 
+    <button type="button" class="btn btn-secondary" (click)="checkDate()">Check Date</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<div *ngIf="!utilityService.isLoggedIn()" class="container pt-5">
+  <p class="fs-1 fw-bold text-danger">OOPS!</p>
+  <p class="fs-1 fw-bold text-secondary">Page Not Found!</p>
+  <p class="fs-2 fw-bold fst-italic text-secondary">You are not logged in. Please log in first!</p>
+</div>
+

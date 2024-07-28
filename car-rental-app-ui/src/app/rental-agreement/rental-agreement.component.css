@@ -1,0 +1,6 @@
+/* Add this CSS to your component's CSS file or a global stylesheet */
+.custom-image {
+    max-width: 100px; /* Set the maximum width as per your requirements */
+    max-height: 100px; /* Set the maximum height as per your requirements */
+  }
+  

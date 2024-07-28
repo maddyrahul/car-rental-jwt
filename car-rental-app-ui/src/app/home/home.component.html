@@ -1,0 +1,75 @@
+<app-header></app-header>
+<div class="my-container mx-auto" >
+  <div class="col-md-6">
+    <div class="input-group mt-3" style="margin-bottom: 11px;">
+      <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-button" 
+        (input)="search(searchField.value)" #searchField>
+      <button class="btn btn-outline-secondary" type="button" id="search-button">Search</button>
+    </div>
+  </div>
+  
+</div>
+<!-- <table class="table table-success table-striped table-bordered border-11 mt-5" >
+  <thead >
+      <tr>
+          <th scope="col">Maker</th>
+          <th scope="col">Model</th>
+          <th scope="col">Rental Price</th>
+          <th scope="col">Availability status</th>
+          <th scope="col">Image</th>
+          <th>Book Car</th>
+          
+        
+          
+           
+           
+      </tr>
+  </thead>
+  <tbody *ngFor="let item of filteredCars">
+      <tr >
+          <td>{{item.maker}}</td>
+          <td>{{item.model}}</td>
+          <td>{{item.rental_Price}}</td>
+          <td>{{item.availability_status}}</td>
+          <td ><img src="{{item.image_Link}}" alt="Image"
+             class="img-fluid img-thumbnail custom-image" ></td>
+         
+        
+          <td><button [routerLink]="['/rental-agreement', sharedRes,item.vehicle_Id]" class="btn btn-outline-primary" [disabled]="item.availability_status === 'onMaintenance' || utilityService.isadminLoggedIn()">Book</button></td>
+      </tr>
+  </tbody>
+</table> -->
+
+
+<div class="car-horizontal-list mt-5">
+  <div *ngFor="let item of filteredCars" class="car-horizontal-box">
+    <div class="car-box-inner">
+      <div class="car-image">
+        <img src="{{ item.image_Link }}" alt="Car Image" class="img-fluid img-thumbnail custom-image">
+      </div>
+      <div class="car-details">
+        <div class="car-info">
+          <span class="label">Maker:</span>
+          <span>{{ item.maker }}</span>
+        </div>
+        <div class="car-info">
+          <span class="label">Model:</span>
+          <span>{{ item.model }}</span>
+        </div>
+        <div class="car-info">
+          <span class="label">Rental Price:</span>
+          <span>&#8377; {{ item.rental_Price }}</span>
+        </div>
+        <div class="car-info">
+          <span class="label">Availability Status:</span>
+          <span>{{ item.availability_status }}</span>
+        </div>
+        <div class="car-info">
+          <button [routerLink]="['/rental-agreement', sharedRes, item.vehicle_Id]"
+            class="btn btn-outline-primary"
+            [disabled]="item.availability_status === 'onMaintenance' || utilityService.isAdmin()">Book</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

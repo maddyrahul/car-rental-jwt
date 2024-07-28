@@ -1,0 +1,48 @@
+.custom-image {
+    max-width: 100px; 
+    max-height: 100px; 
+}
+
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+}
+
+.car-horizontal-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .car-horizontal-box {
+    width: calc(33.33% - 20px); /* Set width for each car box with some spacing */
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border: 1px solid hwb(0 10% 2%); /* Add borders to each car box */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow content */
+    background-color: rgb(240, 189, 247); /* Background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  .car-box-inner {
+    display: flex;
+  }
+  
+  .car-image {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .car-details {
+    flex: 2;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  

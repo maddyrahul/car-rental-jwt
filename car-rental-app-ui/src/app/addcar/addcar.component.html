@@ -1,0 +1,77 @@
+<body>
+  <app-header></app-header>
+    <div class="fixed-header mt-5">
+      <b>Add New Car Details</b><br>
+    </div>
+    <form #form="ngForm" (ngSubmit)="onSubmit()" style="background-color: hsl(323, 77%, 73%);"
+      class="border border-warning mt-4 shadow-lg p-6 mb-4">
+      <div class="row mb-3 mt-5">
+        <label for="Maker" class="col-sm-2 col-form-label">Maker</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="productName" name="maker"
+            [(ngModel)]="car.maker" required #maker="ngModel"
+            pattern="[A-Za-z\s]+">
+          <span class="error" *ngIf="form.controls['maker']?.invalid && form.controls['maker']?.touched">
+            Maker is required and must contain only letters and spaces
+          </span>
+        </div>
+      </div>
+      <div class="row mb-3 mt-5">
+        <label for="name" class="col-sm-2 col-form-label">Model</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="description" name="model" [(ngModel)]="car.model"
+            required #model="ngModel"
+            pattern="[A-Za-z\s]+">
+          <span class="error" *ngIf="form.controls['model']?.invalid && form.controls['model']?.touched">
+            Model is required and must contain only letters and spaces
+          </span>
+        </div>
+      </div>
+      <div class="row mb-3 mt-5">
+        <label for="date_of_birth" class="col-sm-2 col-form-label">Rental Price</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="category" name="rental_Price" [(ngModel)]="car.rental_Price"
+            required  #rentalPrice="ngModel"
+            pattern="[0-9]+">
+          <span class="error" *ngIf="form.controls['rental_Price']?.invalid && form.controls['rental_Price']?.touched">
+            Rental Price is required and must be a number
+          </span>
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <label for="score" class="col-sm-2 col-form-label">Availability Status</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="availabilityStatus" [(ngModel)]="car.availability_status" name="availability_status" required>
+            <option value="available">Available</option>
+            <option value="onRent">On Rent</option>
+            <option value="onMaintenance">On Maintenance</option>
+          </select>
+          <span class="error" *ngIf="form.controls['availability_status']?.invalid && form.controls['availability_status']?.touched">
+            Availability Status is required
+          </span>
+        </div>
+      </div>
+
+      
+
+
+
+
+
+      <div class="row mb-3 mt-3">
+        <label for="score" class="col-sm-2 col-form-label">Image</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="image" name="image_Link" [(ngModel)]="car.image_Link" required>
+          <span class="error" *ngIf="form.controls['image_Link']?.invalid && form.controls['image_Link']?.touched">
+            Image is required
+          </span>
+        </div>
+      </div>
+      
+     
+  
+      <button type="submit" class="btn btn-success">Add</button>
+      <button type="reset" class="btn btn-info">Clear</button>
+    </form>
+  </body>
+   
